@@ -1,0 +1,196 @@
+CIS11 Course Project Part 1: Documenting the Project
+
+Introduction
+
+1.1 Purpose
+
+Summarize program goals and objectives.
+
+The goal of this LC-3 program is to display the frequency of characters of the users full name after
+user inputs a given letter. As prompted the user should be able to input his/her full name and chose a letter to count.
+When input the program will output the numerical value that will represent the frequency of a
+character in the user’s full name.
+
+1.2 Intended Audience and Users
+
+The primary audience/user
+
+Anyone who wants to count a certain character in their name.
+
+1.3 Product Scope
+
+What is the intention of this program?
+
+The intention of this program is to give the user the opportunity to know the frequency of a character in their
+name.
+
+1.4 Reference
+
+Source Documents for the Program Requirements and Specification
+
+Reference Project requirements and LC-3 specifications.
+
+Contain appropriate addresses: origination, fill, array, input and output. (20 points)
+
+Display counted values in console. (20 points)
+
+Use appropriate labels and comments. (20 points)
+
+Contain appropriate instructions for arithmetic, data movement and conditional
+operations.
+(40 points)
+
+Comprise of 2 or more subroutines and implement subroutine calls. (20 points)
+
+Use branching for control: conditional and iterative. (30 points)
+
+Manage overflow and storage allocation. (20 points)
+
+Manage stack: include PUSH-POP operation on stack. (20 points)
+
+Include save-restore operations. (30 points)
+2
+
+Include pointer (20 points)
+
+Implement ASCII conversion operations (30 points)
+
+Use appropriate system call directives. (10 point)
+
+Testing (20 points): Test the program using the team names.
+Building and testing the program is for Project Part 3 (Total 300 points).
+Input & Output
+Input: User is prompt to input his or her full name.
+Output: Numerical value that represent the frequency of a character in the user
+fullname.
+
+Overall Description
+
+2.1 Product Perspective
+
+Primary program objectives and goals.:
+• Have a running program to count frequent characters in a name.
+• Implement the correct ascii conversion
+• Store name in array and input a letter
+• Have correct input and output functions
+• Display correct values
+
+Data type:
+Chars
+
+2.2Product Functions
+
+The overall description of functionality:
+
+Highlight the program functionality: Identify tasks and subtasks of the program in summary.
+
+Collect user input
+o Get character
+o Put character in an array
+Collect character to compare
+o Store letter in register
+Counter letter frequency
+o Compare letters to character chosen
+o If they are the same add to frequency count
+Ascii conversion
+o Subtract by x30
+Display count
+Technical functionality
+
+What are the technical functions of the program? Subroutines and operations.
+
+The program collects the user input by storing each character into an array by calling the subroutine
+get_full_name. The subroutine grabs the current character in the input and checks if that character is an
+enter press or not. This is done by adding #-10 and if the result is zero it branches to
+STOP_USER_INPUT_ LOOP. If the character is not an enter press it continues and is stored at the address
+stored in register 1. The program then iterates to the next array element location and loops the process
+eventually returning to the main process. The program then outputs another prompt asking for the
+character to search the frequency for. The program then takes a single character input from the user
+and stores that character in register 4. The subroutine count_frequency is then called to generate the
+result. The subroutine takes the character chosen and performs its two’s complement. The start of the
+array address is then copied into register 3, it checks if the element at that address is zero. If that does
+occur, it branches to STOP_ITERATION_LOOP. The element is then compared to the character chosen. If
+the result yields a negative or a positive number, it branches off to SKIP_INCREMENT where it iterates to
+the next element address, looping back to the beginning of the loop. If the result yields a zero the count
+increases in register 2, the array iterates to the next location, and then it loops to the beginning. The
+subroutine then returns with a frequency value in register 2. The program then generates a result text,
+while the result is ascii converted and output to the console.
+
+2.3 User Classes and Characteristics
+
+What type of users are involved in this development process? Include business and technical personnel and
+their tasks.
+
+Ciara jones, LC-3 code, flow chart documentation, read me
+Mathew B, lc-3 code, flow chart, documentation, read me
+Felipe leon, lc-3 code, flowchart, documentation, read me
+
+2.4 Operating Environment
+
+What type of system will the application be operated on? Operating system? System types?
+Development platform?
+
+Assembly language system: LC-3
+Operating system: Windows 10
+Development platform: LC3 Windows
+How should the application be used? Simulator version?
+The application can be ran on any LC3 simulator, but should be ran on LC3 simulator windows
+version 3.01.
+
+2.5Design and Implementation Constraints
+
+Note any constraints or limitations to the application.
+
+The constraints and limitations is that a letter cannot be repeated more than 9 times and the input
+is case sensitive. If searching for a lower-case “a” any upper-case “A” will not be counted in the
+frequency.
+
+2.6Assumptions and Dependencies
+
+Note any dependencies.
+Is this application dependent on other applications or services? Browser? Web
+services? Simulator? LC3 simulator windows version 3.01
+
+External Interface Requirements
+3.1 User Interfaces
+
+How will the user interface with your program? Menus? Console?
+The user will interface with the program via console to collect their full name, collect a character to
+count, and display the frequency of that character
+
+3.2 Hardware Interfaces
+
+Specify hardware interface – computer types? Terminal types? Personal laptop or
+desktop
+
+3.3 Software Interfaces
+
+Specify additional software interface – if any. What type of software will the application require to
+run? none
+
+3.4 Communications Interface
+
+Does your application require web, Internet, or network connectivity? If so, which
+browser? What type of network connection?
+This application does not need network connection
+
+Detailed Description of Functional requirements
+4.1 Type of Requirement (summarize from Section 2.2)
+
+What are the functions? Their purposes? Inputs? Outputs? Data? Where is the data
+stored (internal or external to the application)?
+
+The program collects the user input by storing each character into an array by calling the subroutine
+get_full_name. The address of the array is then stored in register 1. The program then outputs another
+prompt asking for the character to search the frequency for. The program then takes a single character
+input from the user and stores that character in register 4. The subroutine count_frequency is then
+called to generate the result. The subroutine stores the starting address in register 3 and starts
+comparing the element at that address to the character chosen. If the result of the comparison is zero it
+adds to the count and if the result yields a negative or positive, it skips the count. The subroutine then
+returns with a frequency value in register 2. The program then generates a result text, while the result is
+ascii converted and output to the console.
+
+4.2 Performance requirements
+
+What is the expected performance level of the program?
+Full functionality
